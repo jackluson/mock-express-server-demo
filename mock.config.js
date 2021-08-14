@@ -7,12 +7,13 @@ const config = {
   openValidParams: false, // 是否检验请求参数类型合法，false，则不检验, 直接返回响应数据
   // 请求配置
   // 响应配置
-  isHttps: true,
+  redirectPath: "ui",
+  isHttps: false, // set true for codesandbox
   codeMap: {
     success: 20000, // 成功逻辑code
     unlogin: 40001, // 没有登录
-    parameterError: 40003 //参数错误
-  }
+    parameterError: 40003, //参数错误
+  },
 };
 
 module.exports = config;
