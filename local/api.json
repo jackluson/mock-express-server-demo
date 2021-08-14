@@ -1,0 +1,85 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "可以在线调试的接口文档",
+    "version": "1.0",
+    "title": "SWA接口文档"
+  },
+  "host": "http://localhost:9009",
+  "basePath": "/v2",
+  "tags": [
+    { "name": "教师转介绍", "description": "Active User Bank Controller" }
+  ],
+  "paths": {
+    "/active-user/delivery/status": {
+      "get": {
+        "tags": ["教师转介绍"],
+        "summary": "我的投递状态",
+        "operationId": "getDeliveryStatusUsingGET",
+        "produces": ["*/*", "application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "权限令牌",
+            "required": false,
+            "type": "string",
+            "default": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJzaGEyNTYifQ.W3siaXNzIjoiZG9mIiwibmJmIjoxNTg3MDI0MTk5LCJpYXQiOjE1ODcwMjQxOTksInNpZCI6MSwidHphIjoiQ1NUIiwiZXhwIjoxNTg3MTEwNTk5fSx7InVpZCI6NDMyNiwidHlwIjoiYSJ9XQ.NDM1MDA4YzgyY2RmNmViMjY4MmU5YmJkNjc2ZTcxMGYzYTdmNjAzYmYwN2M4ZWEzNmQ0ZTA1MTBiNjkxYzYxZQ"
+          },
+          {
+            "name": "appid",
+            "in": "header",
+            "description": "业务区分",
+            "required": true,
+            "type": "string",
+            "default": "23232"
+          },
+          {
+            "name": "sign",
+            "in": "header",
+            "description": "接口请求安全，不同appid 签名秘钥不一样",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Result" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "Result": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "返回状态码"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int64",
+          "description": "总记录数"
+        },
+        "data": { "type": "object", "description": "返回对象" },
+        "message": { "type": "string", "description": "返回信息" }
+      },
+      "title": "Result"
+    }
+  }
+}
