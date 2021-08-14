@@ -6,4 +6,4 @@
 
 ## Swagger UI
 
-> 浏览器输入`http://localhost:8080`，打开 swagger ui 测试接口即可
+> 浏览器输入`http://localhost:8080/ui`，打开 swagger ui 测试接口即可
